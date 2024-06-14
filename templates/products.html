@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Products - Online Gift Shop</title>
+    <link rel="stylesheet" href="/static/css/css.css">
+</head>
+<body>
+    <header>
+        <h1>Products</h1>
+    </header>
+    <main>
+        <div id="products"></div>
+        <div>
+            <h2>Personalized T-shirt</h2>
+            <img src="/static/images/t-shirts.jpg" width="200" height="200">
+            <p>Price: 30€</p>
+            <button onclick="addToCart(1)">Add to Cart</button>
+        </div>
+        <div>
+            <h2>Personalized Mug</h2>
+            <img src="/static/images/muggs.jpg" width="200" height="200">
+            <p>Price: 15€</p>
+            <button onclick="addToCart(2)">Add to Cart</button>
+        </div>
+        <div>
+            <h2>Personalized Photo Frame</h2>
+            <img src="/static/images/photo frame.jpg" width="200" height="200">
+            <p>Price: 25€</p>
+            <button onclick="addToCart(3)">Add to Cart</button>
+        </div>
+        <div>
+            <h2>Personalized Photo Album</h2>
+            <img src="/static/images/photo album.jpg" width="200" height="200">
+            <p>Price: 40€</p>
+            <button onclick="addToCart(4)">Add to Cart</button>
+        </div>
+    </main>
+    <nav>
+        <ul>
+            <li><a href="/">Back to Home</a></li>
+            <li><a href="/cart">Go to Cart</a></li>
+        </ul>
+    </nav>
+    <footer>
+        <p>2024 Online Gift Shop.</p>
+    </footer>
+    <script src="/static/js/app.js"></script>
+    <script src="/static/js/products.js"></script>
+</body>
+</html>

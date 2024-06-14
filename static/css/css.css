@@ -1,0 +1,104 @@
+/* General Body Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header, Footer, and Main Styling */
+header, footer {
+    background-color: #20232a;
+    color: #61dafb;
+    padding: 20px 10px;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+    display: flex;
+    justify-content: center; /* Centers content in the main area */
+}
+
+/* Navigation Styles */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+a {
+    color: #61dafb;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #4CAF50;
+}
+
+/* Forms and Buttons Styling */
+input[type="text"], input[type="number"], select, button {
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+}
+
+/* CSS Grid for Layout */
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Product Cards Styling */
+.product-card {
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: white;
+}
+
+.product-card:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+}
+
+/* Utilizing Modern Color Schemes */
+:root {
+    --main-bg-color: #f4f4f9;
+    --accent-color: #4CAF50;
+    --text-color: #20232a;
+}
+
+body {
+    background-color: var(--main-bg-color);
+    color: var(--text-color);
+}

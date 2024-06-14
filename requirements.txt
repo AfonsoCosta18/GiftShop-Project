@@ -1,0 +1,4 @@
+connexion
+flask
+connexion[swagger-ui]==2.14.2
+requests==2.31.0

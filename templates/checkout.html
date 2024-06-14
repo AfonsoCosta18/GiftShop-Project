@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkout - Online Gift Shop</title>
+    <link rel="stylesheet" href="/static/css/css.css">
+</head>
+<body>
+    <h1>Checkout</h1>
+    <form id="checkout-form">
+        <label>
+            Name:
+            <input type="text" name="name" required>
+        </label>
+        <label>
+            Address:
+            <input type="text" name="address" required>
+        </label>
+        <label>
+            Payment Method:
+            <select name="payment-method" required>
+                <option value="credit-card">Credit Card</option>
+                <option value="Ideal">Ideal</option>
+            </select>
+        </label>
+        <button type="submit">Place Order</button>
+    </form>
+    <nav>
+        <ul>
+            <li><a href="/cart">Back to Cart</a></li>
+        </ul>
+    </nav>
+    <footer>
+        <p>2024 Online Gift Shop.</p>
+    </footer>
+    <script src="/static/js/app.js"></script>
+    <script src="/static/js/checkout.js"></script>
+</body>
+</html>

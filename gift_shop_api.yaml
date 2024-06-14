@@ -1,0 +1,185 @@
+openapi: 3.0.0
+info:
+  title: Gift Shop API
+  description: API for managing a gift shop
+  version: 1.0.0
+
+servers:
+  - url: '/api'
+
+paths:
+  /products:
+    get:
+      operationId: products.read_all
+      tags:
+      - products
+      summary: Get all products
+      responses:
+        '200':
+          description: Successfully read the products' list
+    post:
+      operationId: products.create
+      tags:
+      - products
+      summary: Create a new product
+      requestBody:
+        description: Create a new product
+        required: true
+        content: 
+          application/json:
+            schema:
+              $ref: "#/components/schemas/product"
+      responses:
+        '201':
+          description: Successfully added a product
+  /products/{id}:
+    get:
+      operationId: products.read_productbyId
+      tags:
+      - products
+      summary: Read a product with a specific id
+      parameters:
+        - $ref: "#/components/parameters/id"
+      responses:
+        '200':
+          description: Successfully read the product
+        '404':
+          description: Not found
+    put:
+      operationId: products.update_productbyId
+      tags:
+      - products
+      summary: Update a product
+      parameters:
+        - $ref: "#/components/parameters/id"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/product"
+      responses:
+        '200':
+          description: Successfully updated the product
+    delete:
+      operationId: products.delete_productbyId
+      tags:
+      - products
+      summary: Delete a product
+      parameters:
+        - $ref: "#/components/parameters/id"
+      responses:
+        '204':
+          description: Successfully deleted the product
+
+  /cart:
+    get:
+      operationId: cart.read_all
+      tags:
+      - cart
+      summary: Get all items in the cart
+      responses:
+        '200':
+          description: Successfully read the cart items
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/cartItem"
+    post:
+      operationId: cart.add
+      tags:
+      - cart
+      summary: Add an item to the cart
+      requestBody:
+        description: Add an item to the cart
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                productId:
+                  type: integer
+      responses:
+        '200':
+          description: Successfully added item to cart
+        '404':
+          description: Product not found
+
+  /order:
+    post:
+      operationId: order.place
+      tags:
+      - order
+      summary: Place an order
+      requestBody:
+        description: Place an order
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/order"
+      responses:
+        '200':
+          description: Successfully placed the order
+
+  /cart/clear:
+    post:
+      operationId: cart.clear
+      tags:
+      - cart
+      summary: Clear the cart
+      responses:
+        '200':
+          description: Successfully cleared the cart
+
+components:
+  schemas:
+    product:
+      type: object 
+      required: 
+        - name
+        - price
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        price:
+          type: number
+        
+    cartItem:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        price:
+          type: number
+        quantity:
+          type: integer
+
+    order:
+      type: object
+      required:
+        - name
+        - address
+        - payment-method
+      properties:
+        name:
+          type: string
+        address:
+          type: string
+        payment-method:
+          type: string
+        
+  parameters:
+    id:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: integer
